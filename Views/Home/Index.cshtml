@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <div class="row-col py-4 text-center">
+        <h2>Chefs | <a href="/dishes">Dishes</a></h2>
+    </div>
+    <div class="row">
+        <div class="col-6 py-3">
+            <h4>Check out our roster of chefs!</h4>
+        </div>
+        <div class="col-6 py-3 text-right">
+            <a href="/new_chef" class="btn btn-outline-info">Add a Chef</a>
+        </div>
+    </div>
+    <div class="row-col py-3">
+        <table class="table">
+            <thead class="table-success">
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Number of Dishes</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var chef in @Model)
+                {
+                    <tr>
+                        <td>@chef.FirstName @chef.LastName</td>
+                        <td>@chef.Age</td>
+                        <td>@chef.DishesMade.Count</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
